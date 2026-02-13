@@ -32,7 +32,7 @@ namespace GAMEstore23.Areas.Identity.Pages.Account
         [BindProperty]
         public InputModel Input { get; set; }
 
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }   // ← ЛИПСВАШОТО!
+        public IList<AuthenticationScheme> ExternalLogins { get; set; }  
 
         public string ReturnUrl { get; set; }
 
@@ -63,7 +63,7 @@ namespace GAMEstore23.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
             ReturnUrl = returnUrl;
 
-            // Взимане на външни логини (не са задължителни)
+            
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -71,7 +71,7 @@ namespace GAMEstore23.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
 
-            // Външни логини – само ако са нужни за view-то
+          =
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)
@@ -108,4 +108,5 @@ namespace GAMEstore23.Areas.Identity.Pages.Account
             return Page();
         }
     }
+
 }
