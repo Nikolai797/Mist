@@ -21,7 +21,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         base.OnModelCreating(builder);
 
-        // Композитен първичен ключ за OrderItem (много-към-много)
+        
         builder.Entity<OrderItem>()
             .HasKey(oi => new { oi.OrderId, oi.GameId });
 
@@ -45,4 +45,5 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             .WithMany(u => u.Orders)
             .HasForeignKey(o => o.UserId);
     }
+
 }
