@@ -23,7 +23,6 @@ public static class DbInitializer
             }
         }
 
-        // ---- 2. АДМИНИСТРАТОР ----
         var adminEmail = "admin@game.com";
         var adminUser = await userManager.FindByEmailAsync(adminEmail);
         if (adminUser == null)
@@ -42,7 +41,7 @@ public static class DbInitializer
             }
         }
 
-        // ---- 3. ТЕСТОВ ПОТРЕБИТЕЛ (CUSTOMER) ----
+       
         var customerEmail = "customer@game.com";
         var customerUser = await userManager.FindByEmailAsync(customerEmail);
         if (customerUser == null)
@@ -61,11 +60,11 @@ public static class DbInitializer
             }
         }
 
-        // ---- 4. SEED – КАТЕГОРИИ И ИГРИ ----
+        
         var categoryService = serviceProvider.GetRequiredService<ICategoryService>();
         var gameService = serviceProvider.GetRequiredService<IGameService>();
 
-        // --- Категории ---
+       
         if (!(await categoryService.GetAllCategoriesAsync()).Any())
         {
             var categories = new List<Category>
@@ -82,7 +81,7 @@ public static class DbInitializer
             }
         }
 
-        // --- Игри ---
+      
         if (!(await gameService.GetAllGamesAsync()).Any())
         {
             var categories = await categoryService.GetAllCategoriesAsync();
@@ -133,3 +132,4 @@ public static class DbInitializer
         }
     }
 }
+
