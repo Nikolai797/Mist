@@ -1,8 +1,7 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
+
 #nullable disable
 
-using GameStore.Data.Identity;          // ← За ApplicationUser
+using GameStore.Data.Identity;          
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -80,7 +79,7 @@ namespace GAMEstore23.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // ✅ СЪЗДАВАМЕ ApplicationUser, а НЕ IdentityUser!
+                
                 var user = new ApplicationUser
                 {
                     UserName = Input.Email,
@@ -93,7 +92,7 @@ namespace GAMEstore23.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    // ✅ ДОБАВЯМЕ ПОТРЕБИТЕЛЯ КЪМ РОЛЯ "Customer"
+                    
                     await _userManager.AddToRoleAsync(user, "Customer");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
@@ -109,4 +108,5 @@ namespace GAMEstore23.Areas.Identity.Pages.Account
             return Page();
         }
     }
+
 }
