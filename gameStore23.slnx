@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GameStore.Data/GameStore.Data.csproj" />
+  <Project Path="GameStore.Services/GameStore.Services.csproj" />
+  <Project Path="GameStore.Tests/GameStore.Tests.csproj" />
+  <Project Path="GAMEstore23/GAMEstore23.csproj" />
+</Solution>
